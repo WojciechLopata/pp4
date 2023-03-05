@@ -40,9 +40,9 @@ def zapisz_do_pliku(tekst=""):
     with open("procedura.txt", "a") as file:
         if(tekst==""):
             print("weszło")
-            file.write(input("Napisz co chcesz żeby było zapisane do pliku ")+"\n")
+            file.write(input("\n""Napisz co chcesz żeby było zapisane do pliku "))
         else: 
-            file.write(tekst+"\n")
+            file.write("\n"+tekst)
 
 def cena_netto(cena_brutto, stawka_podatku):
     # sprawdzam czy stawka podatku została podana jako liczba od 0 do 1  czy jako procent  i czy użytkownik podał poprawnie dane
