@@ -27,7 +27,7 @@ class Zajecia:
 
     def zapisz_studenta(self, student):
         if (len(self.studenci_lista) < 10):
-            print(len(self.studenci_lista))
+            
             self.studenci_lista.append(student)
         else:
             print("Nie dokonano zapisu, osiągnięto maksymalną ilość uczestników zajęć")
@@ -36,10 +36,13 @@ class Zajecia:
         return str(self.studenci_lista)
 
 
-def zapisz_do_pliku():
+def zapisz_do_pliku(tekst=""):
     with open("procedura.txt", "a") as file:
-        file.write(input("Napisz co chcesz żeby było zapisane do pliku ")+"\n")
-
+        if(tekst==""):
+            print("weszło")
+            file.write(input("Napisz co chcesz żeby było zapisane do pliku ")+"\n")
+        else: 
+            file.write(tekst+"\n")
 
 def cena_netto(cena_brutto, stawka_podatku):
     # sprawdzam czy stawka podatku została podana jako liczba od 0 do 1  czy jako procent  i czy użytkownik podał poprawnie dane
@@ -78,6 +81,7 @@ print(k.wyjmij())
 print(k)
 
 zapisz_do_pliku()
+zapisz_do_pliku("testowe")
 
 wyklad = Zajecia(["1", "2", "3", "4", "5", "6", "7", "8"])
 wyklad.zapisz_studenta("9")
