@@ -7,7 +7,14 @@ public class CreditCard {
 
     public CreditCard(String s) {
     }
-
+    public void withdraw(BigDecimal withdrawalAmount){
+        if(this.balance.compareTo(withdrawalAmount)>=0){
+            this.balance=this.balance.subtract(withdrawalAmount);
+        }
+        else{
+            throw new BalanceSmallerThatWithdrawalException();
+        }
+    }
     public void assignLimit(BigDecimal creditAmount) {
         //@Todo weird function fix it later date
         if(creditAmount.compareTo(BigDecimal.valueOf(100))<0){
@@ -21,12 +28,15 @@ public class CreditCard {
             throw new LimitAssignedMultipleTimesException();
         }
     }
+    public void assignBalance(BigDecimal balance){
+        this.balance=balance;
+    }
 
     private boolean isCreditNull() {
         return this.limit==null;
     }
 
     public BigDecimal getBalance() {
-        return BigDecimal.valueOf(1000);
+        return  this.balance;
     }
 }

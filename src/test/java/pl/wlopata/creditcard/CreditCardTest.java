@@ -75,7 +75,7 @@ public class CreditCardTest {
     @Test
     void itAllowsToWithdraw(){
         CreditCard card1 = new CreditCard("1234-5678");
-        card1.assignLimit(1000);
+        card1.assignBalance(BigDecimal.valueOf(1000));
         card1.withdraw(BigDecimal.valueOf(100));
         assertEquals(BigDecimal.valueOf(900), card1.getBalance());
     }
