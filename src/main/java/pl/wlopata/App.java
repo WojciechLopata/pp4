@@ -17,6 +17,15 @@ public class App {
     @Bean
     ProductCatalog createProductCatalog(){
          ProductCatalog productCatalog= new ProductCatalog(new HashMapProductStorage());
+         String product1= productCatalog.addProduct("konto","eune",BigDecimal.valueOf(30));
+         productCatalog.assignImage(product1,"Image");
+         productCatalog.changePrice(product1,BigDecimal.valueOf(10));
+         productCatalog.publishProduct(product1);
+         String product2= productCatalog.addProduct("konto","euw",BigDecimal.valueOf(30));
+         productCatalog.assignImage(product2,"Image");
+         productCatalog.changePrice(product2,BigDecimal.valueOf(15));
+         productCatalog.publishProduct(product2);
+
 
 
 

@@ -22,6 +22,10 @@ public class Product {
         return uuid;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
     public UUID getUUID() {
         return UUID.fromString(uuid);
     }
