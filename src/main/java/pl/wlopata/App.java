@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import pl.wlopata.creditcard.ProductCatalog.HashMapProductStorage;
 import pl.wlopata.creditcard.ProductCatalog.Product;
 import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;
+import pl.wlopata.sales.*;
 
 import java.math.BigDecimal;
 
@@ -30,5 +31,10 @@ public class App {
 
 
         return productCatalog;
+    }
+    @Bean
+    Sales createSales () {
+
+        return  new Sales(new CartStorage(), new ProductDetailProvider(), new OfferMaker());
     }
 }

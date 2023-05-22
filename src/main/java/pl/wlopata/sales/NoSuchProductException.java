@@ -1,4 +1,4 @@
 package pl.wlopata.sales;
 
-public class NoSuchProductException implements IllegalStateException {
+public class NoSuchProductException extends IllegalStateException {
 }
