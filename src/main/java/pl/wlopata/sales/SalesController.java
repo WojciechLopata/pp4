@@ -11,18 +11,23 @@ public class SalesController {
     public SalesController(Sales sales){
         this.sales=sales;
     }
-  /*  @GetMapping("/api/get-current-offer")
-    public  Offer getCurrentOffer(){
-        return sales.getCurrentOffer();
+    @GetMapping("/api/get-current-offer")
+    public  Offer getCurrentOffer(String customer){
+
+        return sales.getCurrentOffer(getCurrentCustomer());
 
 
     }
-    @PostMapping('/api/add-to-cart/{productId}')
-    public  void AddToCard(@PathVariable String productId){
+    @PostMapping("api/add-to-cart/{productId}")
+    public void AddToCard(@PathVariable String productId){
+        System.out.println("ma się nie wyświetlać");
         sales.addToCart(getCurrentCustomer(),productId);
 
     }
-    private  String getCurrentOffer
-*/
+    private String getCurrentCustomer() {
+        return "Anon";
+    }
+
+
 }
 

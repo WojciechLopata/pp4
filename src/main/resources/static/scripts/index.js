@@ -23,6 +23,7 @@ const refreshCurrentOffer= () =>{
 console.log(' i am going to refresh offer');
     const offerElement = document.querySelector('.cart');
     getCurrentOffer().then(offer =>{
+    console.log(offer);
     offerElement.querySelector('.total').textContent=`${offer.total} PLN`;
     offerElement.querySelector('.itemsCount').textContent=`${offer.itemsCount} items`;
     });
