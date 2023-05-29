@@ -10,14 +10,14 @@ import java.util.TreeMap;
 import java.util.UUID;
 
 public class Cart {
-    private ArrayList<UUID> productList= new ArrayList<UUID>();
+    private ArrayList<String> productList= new ArrayList<String>();
 //    private Map<UUID,int> productMap= new TreeMap<>();
 
-    public ArrayList<UUID> getProductList() {
+    public ArrayList<String> getProductList() {
         return productList;
     }
 
-    public void setProductList(ArrayList<UUID> productList) {
+    public void setProductList(ArrayList<String > productList) {
         this.productList = productList;
     }
 
@@ -31,7 +31,7 @@ public class Cart {
     }
     public BigDecimal totalPrice(ProductCatalog catalog){
         BigDecimal sum=BigDecimal.valueOf(0);
-        for (UUID productID: productList) {
+        for (String productID: productList) {
             Product product= catalog.loadById(productID.toString());
             BigDecimal price= product.getPrice();
             sum.add(price);
@@ -43,12 +43,14 @@ public class Cart {
     }
 
     public void add(ProductDetails product) {
+        productList.add(product.getId());
 
 
 
 
     }
     public void groupItems(){
+
 
     }
 }
