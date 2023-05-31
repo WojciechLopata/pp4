@@ -1,9 +1,6 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.product;
 
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Optional;
-import java.util.TreeMap;
 
 public class AlwaysMissingProductDetailProvider implements ProductDetailsProvider {
 

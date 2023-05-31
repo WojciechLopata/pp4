@@ -1,4 +1,4 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.reservation;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

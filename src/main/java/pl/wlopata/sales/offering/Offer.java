@@ -1,4 +1,4 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.offering;
 
 import java.math.BigDecimal;
 

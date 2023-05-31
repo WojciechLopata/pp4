@@ -1,17 +1,13 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.offering;
 
-import pl.wlopata.creditcard.ProductCatalog.Product;
 import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;
-import pl.wlopata.creditcard.ProductCatalog.ProductStorage;
+import pl.wlopata.sales.cart.Cart;
 
 import java.math.BigDecimal;
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.UUID;
 
 public class OfferMaker {
     public BigDecimal sumOfDiscounts=BigDecimal.valueOf(0);
-    public void CheckForDiscounts(Cart customerCart,ProductCatalog catalog){
+    public void CheckForDiscounts(Cart customerCart, ProductCatalog catalog){
         if(FiftyForFiveHunderdDiscount(customerCart,catalog)) {
             sumOfDiscounts=sumOfDiscounts.add(BigDecimal.valueOf(50));
 

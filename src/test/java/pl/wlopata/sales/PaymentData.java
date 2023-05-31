@@ -1,2 +1,4 @@
-package pl.wlopata.sales;public class PaymentData {
+package pl.wlopata.sales;
+
+public class PaymentData {
 }

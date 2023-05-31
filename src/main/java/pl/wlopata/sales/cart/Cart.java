@@ -1,13 +1,11 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.cart;
 
 import pl.wlopata.creditcard.ProductCatalog.Product;
 import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;
+import pl.wlopata.sales.product.ProductDetails;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.UUID;
 
 public class Cart {
     private ArrayList<String> productList= new ArrayList<String>();

@@ -4,9 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.wlopata.creditcard.ProductCatalog.HashMapProductStorage;
-import pl.wlopata.creditcard.ProductCatalog.Product;
 import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;
 import pl.wlopata.sales.*;
+import pl.wlopata.sales.cart.CartStorage;
+import pl.wlopata.sales.product.ProductCatalogProductDetailsProvider;
 
 import java.math.BigDecimal;
 
@@ -33,8 +34,9 @@ public class App {
         return productCatalog;
     }
     @Bean
-    Sales createSales () {
+    Sales createSales (ProductCatalog catalog) {
 
-        return  new Sales(new CartStorage(), new ProductDetailProvider(), new OfferMaker());
+        return  new Sales(new CartStorage(), new ProductCatalogProductDetailsProvider(catalog));
     }
+
 }

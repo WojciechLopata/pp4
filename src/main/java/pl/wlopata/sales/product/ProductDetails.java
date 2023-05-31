@@ -1,4 +1,4 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.product;
 
 import java.math.BigDecimal;
 import java.util.UUID;

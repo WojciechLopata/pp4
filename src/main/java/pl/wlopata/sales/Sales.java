@@ -1,11 +1,18 @@
 package pl.wlopata.sales;
 
+import pl.wlopata.sales.cart.Cart;
+import pl.wlopata.sales.cart.CartStorage;
+import pl.wlopata.sales.offering.Offer;
+import pl.wlopata.sales.product.NoSuchProductException;
+import pl.wlopata.sales.product.ProductCatalogProductDetailsProvider;
+import pl.wlopata.sales.product.ProductDetails;
+
 import java.util.Optional;
 
 public class Sales {
-    private  ProductDetailProvider productDetailsProvider;
-    private  CartStorage cartStorage;
-    public  Sales (CartStorage cartStorage,ProductDetailProvider productDetailProvider,OfferMaker maker){
+    private ProductCatalogProductDetailsProvider productDetailsProvider;
+    private CartStorage cartStorage;
+    public  Sales (CartStorage cartStorage,ProductCatalogProductDetailsProvider productDetailProvider){
         this.cartStorage=cartStorage;
         this.productDetailsProvider=productDetailProvider;
     }
@@ -14,10 +21,10 @@ public class Sales {
         ProductDetails product= getProductDetails(productId).
                 orElseThrow(()-> new NoSuchProductException());
         customersCart.add(product);
-        CartStorage.save(customerId,customersCart);
+        cartStorage.save(customerId,customersCart);
     }
     private  Optional<ProductDetails> getProductDetails(String productId){
-        return  productDetailsProvider.load(productId);
+        return  productDetailsProvider.loadForProduct(productId);
     }
     private Optional<Cart>  loadForCustomer(String customerId){
         return  cartStorage.load(customerId);
@@ -25,5 +32,9 @@ public class Sales {
 
     public Offer getCurrentOffer(String customer) {
         return new Offer();
+
+    }
+    public  PaymentData acceptoffer(String customerId){
+        Offer offer=getCurrentOffer(customerId);
     }
 }

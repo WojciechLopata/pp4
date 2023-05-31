@@ -1,4 +1,4 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.product;
 
 import pl.wlopata.creditcard.ProductCatalog.Product;
 import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;

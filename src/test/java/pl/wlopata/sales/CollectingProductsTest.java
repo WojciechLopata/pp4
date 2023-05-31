@@ -2,14 +2,17 @@ package pl.wlopata.sales;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.wlopata.sales.cart.Cart;
+import pl.wlopata.sales.cart.CartStorage;
+import pl.wlopata.sales.offering.OfferMaker;
+import pl.wlopata.sales.product.ProductCatalogProductDetailsProvider;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public class CollectingProductsTest {
     private CartStorage cartStorage;
-    private ProductDetailProvider productDetailProvider;
-    private  OfferMaker offerMaker;
+    private ProductCatalogProductDetailsProvider productDetailProvider;
+    private OfferMaker offerMaker;
 
     @BeforeEach
     void setup(){

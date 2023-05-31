@@ -1,4 +1,4 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.cart;
 
 import java.util.HashMap;
 import java.util.Optional;

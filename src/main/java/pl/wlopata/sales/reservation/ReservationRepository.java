@@ -1,4 +1,4 @@
-package pl.wlopata.sales;
+package pl.wlopata.sales.reservation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
