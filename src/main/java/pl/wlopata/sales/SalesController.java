@@ -13,7 +13,7 @@ public class SalesController {
         this.sales=sales;
     }
     @GetMapping("/api/get-current-offer")
-    public Offer getCurrentOffer(String customer){
+    public Offer getCurrentOffer(){
 
         return sales.getCurrentOffer(getCurrentCustomer());
 

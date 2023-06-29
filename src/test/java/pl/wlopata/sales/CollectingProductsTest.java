@@ -2,22 +2,25 @@ package pl.wlopata.sales;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.wlopata.payu.PayU;
 import pl.wlopata.sales.cart.Cart;
 import pl.wlopata.sales.cart.CartStorage;
 import pl.wlopata.sales.offering.OfferMaker;
 import pl.wlopata.sales.product.ProductCatalogProductDetailsProvider;
+import pl.wlopata.sales.product.ProductDetailsProvider;
 
 import java.util.UUID;
 
 public class CollectingProductsTest {
     private CartStorage cartStorage;
-    private ProductCatalogProductDetailsProvider productDetailProvider;
-    private OfferMaker offerMaker;
+    private ProductDetailsProvider productDetailProvider;
+    private  OfferMaker offerMaker;
+    private PaymentGateway paymentGateway;
 
     @BeforeEach
     void setup(){
         cartStorage= new CartStorage();
-        productDetailProvider = new ProductDetailProvider();
+        //productDetailProvider = new ProductDetailsProvider();
         offerMaker = new OfferMaker();
     }
 
@@ -50,9 +53,9 @@ public class CollectingProductsTest {
     private String thereIsProduct(){
         return UUID.randomUUID().toString();
     }
-    @Test
-    private  Sales thereIsSalesModule(){
-        return  new Sales(cartStorage,productDetailProvider,offerMaker);
-    }
+  @Test
+   private  Sales thereIsSalesModule(){
+       return  new Sales(cartStorage,productDetailProvider,paymentGateway);
+  }
 
 }

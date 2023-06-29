@@ -3,8 +3,12 @@ package pl.wlopata;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 import pl.wlopata.creditcard.ProductCatalog.HashMapProductStorage;
 import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;
+import pl.wlopata.payu.PayU;
+import pl.wlopata.payu.PayUApiCredentials;
+import pl.wlopata.payu.PayuPaymentGateway;
 import pl.wlopata.sales.*;
 import pl.wlopata.sales.cart.CartStorage;
 import pl.wlopata.sales.product.ProductCatalogProductDetailsProvider;
@@ -33,10 +37,17 @@ public class App {
 
         return productCatalog;
     }
-    @Bean
-    Sales createSales (ProductCatalog catalog) {
-
-        return  new Sales(new CartStorage(), new ProductCatalogProductDetailsProvider(catalog));
+   @Bean
+    PaymentGateway createPaymentGateway() {
+        return new PayuPaymentGateway(new PayU(PayUApiCredentials.sandbox(), new RestTemplate()));
     }
 
+    @Bean
+    Sales createSales (ProductCatalog catalog,PaymentGateway paymentGateway) {
+
+        return  new Sales(new CartStorage(), new ProductCatalogProductDetailsProvider(catalog),paymentGateway);
+    }
+
+
+//TODO Potwierdzanie konta i TOKEN "ressetting passowrd token" i perawdzimy random
 }

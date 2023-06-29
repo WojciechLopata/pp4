@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 public class Offer {
     BigDecimal total;
     int itemsCount;
-    public  Offer(){
-        this.total=BigDecimal.valueOf(0);
-        this.itemsCount=0;
+    public  Offer(BigDecimal total, int itemsCount){
+        this.total=total;
+        this.itemsCount=itemsCount;
     }
 
     public BigDecimal getTotal() {
