@@ -1,5 +1,9 @@
 package pl.wlopata.creditcard.ProductCatalog;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface ProductStorage {
@@ -10,4 +14,5 @@ public interface ProductStorage {
     List<Product> allProducts();
 
     void add(Product newProduct);
+
 }

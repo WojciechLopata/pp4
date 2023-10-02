@@ -6,18 +6,28 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <h1> My account store works</h1>
-    <div class="cart">
-        <span class="total">...</span>
-        <span class="itemsCount">...</span>
-        <button>BUY</button>
-    </div>
+<h1> My account store works</h1>
+<div class="cart">
+    <span class="total">...</span>
+    <span class="itemsCount">...</span>
+    <button class="acceptOffer">Checkout</button>
+</div>
 
-    <ul id="productList"></ul>
-    <script type="text/javascript" src="/scripts/index.js"> </script>
-    <header>
+<ul id="productList"></ul>
+<div id="checkout">
+    <form>
+        <div class="input-group">
+            <input class="form-control" placeholder="John" name="firstname" required/>
+            <input class="form-control" placeholder="Doe" name="lastname" required/>
+            <input class="form-control" placeholder="john@doe.com" name="email" required type="email"/>
+            <button type="submit">BUY</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/scripts/index.js"> </script>
+<header>
 
 
-    </header>
+</header>
 </body>
 </html>

@@ -1,5 +1,17 @@
 package pl.wlopata;
 
+import com.fasterxml.jackson.core.JsonParser;
+
+import java.io.*;
+import  java.util.Iterator;
+import java.io.FileReader;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +24,9 @@ import pl.wlopata.payu.PayuPaymentGateway;
 import pl.wlopata.sales.*;
 import pl.wlopata.sales.cart.CartStorage;
 import pl.wlopata.sales.product.ProductCatalogProductDetailsProvider;
+import org.json.*;
 
+import java.io.FileReader;
 import java.math.BigDecimal;
 
 @SpringBootApplication
@@ -21,9 +35,13 @@ public class App {
         SpringApplication.run(App.class,args);
     }
     @Bean
-    ProductCatalog createProductCatalog(){
-         ProductCatalog productCatalog= new ProductCatalog(new HashMapProductStorage());
-         String product1= productCatalog.addProduct("konto","eune",BigDecimal.valueOf(30));
+    ProductCatalog createProductCatalog() throws IOException, ParseException {
+
+
+
+
+
+     /*    String product1= productCatalog.addProduct("konto","eune",BigDecimal.valueOf(30));
          productCatalog.assignImage(product1,"Image");
          productCatalog.changePrice(product1,BigDecimal.valueOf(10));
          productCatalog.publishProduct(product1);
@@ -31,11 +49,10 @@ public class App {
          productCatalog.assignImage(product2,"Image");
          productCatalog.changePrice(product2,BigDecimal.valueOf(15));
          productCatalog.publishProduct(product2);
+*/
 
 
-
-
-        return productCatalog;
+        return HashMapProductStorage.loadFromJson();
     }
    @Bean
     PaymentGateway createPaymentGateway() {

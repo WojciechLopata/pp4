@@ -1,10 +1,25 @@
 package pl.wlopata.payu;
 
 public class Product {
-    //TODO przepisz to od niego
-    String name;
-    Integer unitPrice;
-    Integer quantity;
+    private String name;
+    private Integer unitPrice;
+    private Integer quantity;
+    /*
+    {
+                "name": "Wireless Mouse for Laptop",
+                "unitPrice": "15000",
+                "quantity": "1"
+            },
+     */
+
+    public Product() {
+    }
+
+    public Product(String name, Integer unitPrice, Integer quantity) {
+        this.name = name;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
+    }
 
     public String getName() {
         return name;

@@ -1,10 +1,13 @@
 package pl.wlopata.sales;
 
+import org.json.simple.parser.ParseException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.wlopata.sales.offering.Offer;
+
+import java.io.IOException;
 
 @RestController
 public class SalesController {
@@ -13,7 +16,7 @@ public class SalesController {
         this.sales=sales;
     }
     @GetMapping("/api/get-current-offer")
-    public Offer getCurrentOffer(){
+    public Offer getCurrentOffer() throws IOException, ParseException {
 
         return sales.getCurrentOffer(getCurrentCustomer());
 

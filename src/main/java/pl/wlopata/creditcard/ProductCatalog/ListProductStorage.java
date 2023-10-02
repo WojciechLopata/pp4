@@ -1,5 +1,8 @@
 package pl.wlopata.creditcard.ProductCatalog;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.util.List;
 
 public class ListProductStorage implements ProductStorage{
@@ -11,6 +14,8 @@ public class ListProductStorage implements ProductStorage{
 
     @Override
     public List<Product> allProducts(){
+        ClassLoader classLoader = getClass().getClassLoader();
+
         return products;
     }
     @Override
@@ -30,4 +35,7 @@ public class ListProductStorage implements ProductStorage{
         //TODO to coś
         //products.add(newProduct.getId(), newProduct);
     }
+
+
+
 }

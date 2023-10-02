@@ -4,14 +4,24 @@ import pl.wlopata.creditcard.ProductCatalog.ProductCatalog;
 import pl.wlopata.sales.cart.Cart;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class OfferMaker {
-    public BigDecimal sumOfDiscounts=BigDecimal.valueOf(0);
-    public void CheckForDiscounts(Cart customerCart, ProductCatalog catalog){
+
+    public BigDecimal CheckForDiscounts(Cart customerCart, ProductCatalog catalog){
+        int sumOfDiscounts=0;
         if(FiftyForFiveHunderdDiscount(customerCart,catalog)) {
-            sumOfDiscounts=sumOfDiscounts.add(BigDecimal.valueOf(50));
+            sumOfDiscounts=sumOfDiscounts+50;
 
         }
+        sumOfDiscounts=sumOfDiscounts+EverySameFifthItemFree(customerCart,catalog);
+        return BigDecimal.valueOf(sumOfDiscounts);
+
         }
 
 
@@ -23,10 +33,27 @@ public class OfferMaker {
      return false;
      }
      private int EverySameFifthItemFree(Cart customerCart, ProductCatalog catalog){
-        BigDecimal sum= BigDecimal.valueOf(0);
+
+        List<String> products= customerCart.getProducts().stream().distinct().collect(Collectors.toList());
+        Map<String,Long> productCount= customerCart.getProducts().stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        System.out.println(productCount);
+
+        int sum=0;
+        for (String product:products){
+
+            sum=sum+ productCount.get(product).intValue()/5*catalog.loadById(product).getPrice().intValue();
 
 
-        return sum.intValue();
+
+
+         }
+        System.out.println(sum);
+
+
+
+
+
+        return sum;
      }
 
 

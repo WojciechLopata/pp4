@@ -34,6 +34,11 @@ public class ProductCatalog {
         productStorage.add(newOne);
         return  ((Product) newOne).getId();
     }
+    public  String addProduct(String name, String desc,BigDecimal price,UUID id){
+        Product newOne=new Product(id,name,desc,price);
+        productStorage.add(newOne);
+        return  ((Product) newOne).getId();
+    }
 
     public void changePrice(String productId, BigDecimal newPrice) {
         Product product=loadById(productId);
